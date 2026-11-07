@@ -18,12 +18,14 @@
 
 
 ## 3. Dự đoán và thực tế
-Phần lớn dự đoán đều lệch với thực tế.
+Phần lớn dự đoán đều lệch với thực tế. Vì chúng đều là những dự đoán ngẫu nhiên
 
 
 ## 4. Phân tích 50 case khó
 50 case khó làm giảm độ chính xác của model
+
 Đặc biệt có những nhóm khiến độ chính xác của model là 0%
+
 Khi đó, cần cải thiện việc xử lý dữ liệu.
 
 ## 5. Thử thách cá nhân
