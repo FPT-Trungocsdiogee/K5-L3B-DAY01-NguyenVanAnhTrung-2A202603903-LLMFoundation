@@ -1,0 +1,170 @@
+{
+ "seed": 9120,
+ "predictions": {
+  "ml_f1": {
+   "text": "F1 ~0.75, precision cao hơn recall vì có nhiều case FN hơn FP",
+   "time": "11:33:44"
+  },
+  "ml_lr": {
+   "text": "lr=0.001 thì đường loss thoải hơn, lr=50 thì đường loss thẳng hơn",
+   "time": "11:34:00"
+  },
+  "dl_curve": {
+   "text": "Val loss có thể giảm mãi, MLP sẽ hơn",
+   "time": "11:35:03"
+  },
+  "dl_relu": {
+   "text": "mạng này tương đương với mạng LogReg, F1 có thể tiếp tục giảm",
+   "time": "11:37:16"
+  },
+  "emb_search": {
+   "text": "ham",
+   "time": "11:40:51"
+  },
+  "emb_tricky": {
+   "text": "encoder+logreg",
+   "time": "11:45:26"
+  },
+  "tradeoff": {
+   "text": "số 1 và số 2",
+   "time": "13:33:47"
+  },
+  "hard_eval": {
+   "text": "90%, Tưởng spam nhưng không phải, giả mạo người thân",
+   "time": "13:47:47"
+  },
+  "llm_fewshot": {
+   "text": "5 lần",
+   "time": "13:55:50"
+  },
+  "llm_models": {
+   "text": "model số 1 và chênh 0.1, model lớn đắt gấp 2 lần, LLM thắng embedding",
+   "time": "13:55:54"
+  }
+ },
+ "checks": {
+  "1.1 vectorize": true,
+  "1.2 sigmoid / predict_proba": true,
+  "1.3 train_logreg": true,
+  "1.4 metrics": true,
+  "2.1 build_mlp": true,
+  "2.2 train_mlp": true,
+  "3.1–3.2 cosine / top_k_similar": true,
+  "3.3 knn_predict": true,
+  "4.2–4.3 prompt / parse_label": true,
+  "4.1 + 4.4 call_openai / llm_classify_batch": false
+ },
+ "experiments": [
+  {
+   "key": "ml_f1",
+   "time": "11:33:44"
+  },
+  {
+   "key": "ml_lr",
+   "time": "11:34:00"
+  },
+  {
+   "key": "dl_curve",
+   "time": "11:35:03"
+  },
+  {
+   "key": "dl_relu",
+   "time": "11:37:16"
+  },
+  {
+   "key": "emb_search",
+   "time": "11:40:51"
+  },
+  {
+   "key": "emb_tricky",
+   "time": "11:45:26"
+  },
+  {
+   "key": "tradeoff",
+   "time": "13:33:49"
+  },
+  {
+   "key": "hard_eval",
+   "time": "13:47:48"
+  },
+  {
+   "key": "llm_models",
+   "time": "16:20:39"
+  }
+ ],
+ "challenge": 0,
+ "results": {
+  "1. BoW + LogReg (tự code)": {
+   "accuracy": 0.8696774193548387,
+   "precision": 0.3225806451612903,
+   "recall": 0.1111111111111111,
+   "f1": 0.07168458781362007,
+   "f1_SUB": 0.08000000000000002,
+   "train_s": 12.873589437000192,
+   "msg_per_s": 3843.841589450488,
+   "p50_ms": 0.0653019997116644,
+   "p95_ms": 0.20903740032735513,
+   "usd_per_1k": 0.0
+  },
+  "2. BoW + MLP (deep learning)": {
+   "accuracy": 0.8774193548387097,
+   "precision": 0.38095238095238093,
+   "recall": 0.08888888888888889,
+   "f1": 0.06772486772486773,
+   "f1_SUB": 0.0,
+   "train_s": 133.2240778339983,
+   "msg_per_s": 21540.360937756985,
+   "p50_ms": 0.23115549993235618,
+   "p95_ms": 0.3081553007177717,
+   "usd_per_1k": 0.0
+  },
+  "3a. Encoder (MiniLM) + kNN": {
+   "accuracy": 0.9716129032258064,
+   "precision": 0.8469387755102041,
+   "recall": 0.9222222222222223,
+   "f1": 1.5621315192743765,
+   "f1_SUB": 1.9,
+   "train_s": 95.46342251799979,
+   "msg_per_s": 15.820042156147444,
+   "p50_ms": 60.45825199998944,
+   "p95_ms": 95.69197714972687,
+   "usd_per_1k": 0.0
+  },
+  "3b. Encoder (MiniLM) + LogReg": {
+   "accuracy": 0.9858064516129033,
+   "precision": 0.9438202247191011,
+   "recall": 0.9333333333333333,
+   "f1": 1.7617977528089888,
+   "f1_SUB": 2.0,
+   "train_s": 95.89500954399955,
+   "msg_per_s": 53.81496833960481,
+   "p50_ms": 24.060947499492613,
+   "p95_ms": 41.222409100282675,
+   "usd_per_1k": 0.0
+  },
+  "3c. Encoder (MiniLM) + MLP head": {
+   "accuracy": 0.9858064516129033,
+   "precision": 0.9540229885057471,
+   "recall": 0.9222222222222223,
+   "f1": 1.7596424010217113,
+   "f1_SUB": 1.9,
+   "train_s": 104.03538987699903,
+   "msg_per_s": 54.00200358776844,
+   "p50_ms": 23.83674599968799,
+   "p95_ms": 37.25724364976486,
+   "usd_per_1k": 0.0
+  },
+  "4a. LLM nhỏ zero-shot": {
+   "accuracy": 1.0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 2.0,
+   "f1_SUB": 2.0,
+   "train_s": 0.0,
+   "msg_per_s": 0.6650737133365839,
+   "p50_ms": 1503.5927295684814,
+   "p95_ms": 1503.5927295684814,
+   "usd_per_1k": 21599.999999999996
+  }
+ }
+}
