@@ -9,9 +9,9 @@
 
 | Tệp | Có? |
 | --- | --- |
-| [`day01_lab.ipynb`](day01_lab.ipynb) — notebook đã chạy, còn phần 3.3, phần 4 và 5 chưa làm | - [x] |
-| [`lab1_report.json`](lab1_report.json) — do ô "Báo cáo cuối" sinh ra | - [x] |
-| [`hand_calc.jpg`](hand_calc.jpg) — ảnh tính tay có các bước |- [x] |
+| [`day01_lab.ipynb`](day01_lab.ipynb) — notebook đã chạy, còn phần 3.3, phần 4 và 5 chưa làm | [x] |
+| [`lab1_report.json`](lab1_report.json) — do ô "Báo cáo cuối" sinh ra | [x] |
+| [`hand_calc.jpg`](hand_calc.jpg) — ảnh tính tay có các bước | [x] |
 
 ## 2. Kết quả chính
 
